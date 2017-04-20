@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Gage.GageoldSensor;
+package org.firstinspires.ftc.teamcode.Gage.Gage;
 
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;

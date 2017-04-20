@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.Gage.GageoldSensor;
+package org.firstinspires.ftc.teamcode.Gage.Gage;
 
 import android.graphics.Color;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;

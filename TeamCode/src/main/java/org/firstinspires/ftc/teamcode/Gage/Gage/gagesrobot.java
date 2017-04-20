@@ -1,13 +1,10 @@
-package org.firstinspires.ftc.teamcode.Gage.GageoldSensor;
+package org.firstinspires.ftc.teamcode.Gage.Gage;
 
 //imports hardware used within your hardware
 import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
-import org.firstinspires.ftc.robotcore.external.Const;
 
 /*
  * This is NOT an opmode.

@@ -1,5 +1,5 @@
 //imports the package that contains methods and such
-package org.firstinspires.ftc.teamcode.Gage.GageoldSensor;
+package org.firstinspires.ftc.teamcode.Gage.Gage;
 //imports methods and hardware used within teleop
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;

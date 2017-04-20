@@ -17,7 +17,7 @@ public class MultiSensor extends OpMode {
         color0 = hardwareMap.colorSensor.get("0");
         color0.setI2cAddress(I2cAddr.create8bit(0x3c));
         color1 = hardwareMap.colorSensor.get("1");
-        color0.setI2cAddress(I2cAddr.create8bit(0x4c));
+        color1.setI2cAddress(I2cAddr.create8bit(0x4c));
 
     }
 
