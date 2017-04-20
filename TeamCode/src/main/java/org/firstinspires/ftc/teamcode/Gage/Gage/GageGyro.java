@@ -21,7 +21,6 @@ public class GageGyro extends LinearOpMode {
         int X, Y, Z = 0;     // beginning Gyro Values
         int Current = 0;              // Current Gyro heading
         int angleZ = 0;             //rate of heading , z value
-
         // Calibration
         telemetry.addData(">","Gyro Calibrating");
         telemetry.update();
@@ -50,7 +49,7 @@ public class GageGyro extends LinearOpMode {
             Current = gyro.getHeading();
             angleZ  = gyro.getIntegratedZValue();
             int Target1 = 90;
-            boolean goalreached;
+            boolean goalreached = true;
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
             if (Current >= Target1){
@@ -60,7 +59,7 @@ public class GageGyro extends LinearOpMode {
                 goalreached = false;
             }
 
-/*            if (goalreached) {
+           if (goalreached) {
                 robot.LeftUp.setPower(0);
                 robot.RightUp.setPower(0);
             }
