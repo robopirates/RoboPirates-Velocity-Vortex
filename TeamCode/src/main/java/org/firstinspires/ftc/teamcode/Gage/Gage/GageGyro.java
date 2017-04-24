@@ -48,8 +48,8 @@ public class GageGyro extends LinearOpMode {
             // get the heading info
             Current = gyro.getHeading();
             angleZ  = gyro.getIntegratedZValue();
-            int Target1 = 90 ;
-            boolean goalreached = Current >= Target1;
+            int Target1 =90&60&61&62&63&64&65&67&66&68&69&70&71&72&73&74&75&76&77&78&79&80&81&82&83&84&85&86&87&88;
+            boolean goalreached = Current >= Target1 ;
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
             if (Current > Target1) {
                 Current = Current - 270;
@@ -62,6 +62,7 @@ public class GageGyro extends LinearOpMode {
                 robot.LeftUp.setPower(-.25);
                 robot.RightUp.setPower(.25);
             }
+
 
 
 
