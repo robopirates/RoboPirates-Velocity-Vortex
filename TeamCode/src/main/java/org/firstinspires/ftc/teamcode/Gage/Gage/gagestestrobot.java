@@ -35,8 +35,8 @@ class gagestestrobot
         RightUp.setDirection(DcMotor.Direction.REVERSE);
         LeftUp.setDirection(DcMotor.Direction.FORWARD);
 
-        RightUp.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
-        LeftUp.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.FLOAT);
+        RightUp.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        LeftUp.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         RightUp.setPower(0);
         LeftUp.setPower(0);
