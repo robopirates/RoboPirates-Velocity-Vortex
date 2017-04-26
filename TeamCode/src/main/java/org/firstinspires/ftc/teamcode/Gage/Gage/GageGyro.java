@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Autonomous(name = "EXGYRO", group = "robot")
@@ -51,22 +52,25 @@ public class GageGyro extends LinearOpMode {
             // get the heading info
             Current = gyro.getHeading();
 
-            int Target1 =60&61&62&63&64&65&67&66&68&69&70&71&72&73&74&75&76&77&78&79&80&81&82&83&84&85&86&87&88&89&90;
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
-           if (Current == Target1) {
-                robot.LeftUp.setPower(1);
-                robot.RightUp.setPower(1);
+
+
+              if (Current < 60) {
+                robot.LeftUp.setPower(-.10);
+                robot.RightUp.setPower(.10);
             }
-            if (Current < Target1) {
-                robot.LeftUp.setPower(-.25);
-                robot.RightUp.setPower(.25);
+
+           else if (Current > 90) {
+                robot.LeftUp.setPower(.10);
+                robot.RightUp.setPower(-.10);
             }
-            if (Current > Target1) {
-                robot.LeftUp.setPower(.25);
-                robot.RightUp.setPower(-.25);
-            }
+
+            else {
+                  robot.LeftUp.setPower(1);
+                  robot.RightUp.setPower(1);
+              }
 
 
 
