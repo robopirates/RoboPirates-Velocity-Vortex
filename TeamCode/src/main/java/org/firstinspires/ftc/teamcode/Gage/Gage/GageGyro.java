@@ -52,24 +52,27 @@ public class GageGyro extends LinearOpMode {
             // get the heading info
             Current = gyro.getHeading();
 
+            int StartParameter = 60;
+            int EndParameter = 90;
+
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
 
 
-              if (Current < 60) {
+              if (Current < StartParameter) {
                 robot.LeftUp.setPower(-.10);
                 robot.RightUp.setPower(.10);
             }
 
-           else if (Current > 90) {
+           else if (Current > EndParameter) {
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(-.10);
             }
 
             else {
-                  robot.LeftUp.setPower(1);
-                  robot.RightUp.setPower(1);
+                  robot.LeftUp.setPower(.10);
+                  robot.RightUp.setPower(.10);
               }
 
 
