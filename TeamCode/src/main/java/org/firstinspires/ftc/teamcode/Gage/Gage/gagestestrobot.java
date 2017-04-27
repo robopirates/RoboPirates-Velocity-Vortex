@@ -26,11 +26,11 @@ class gagestestrobot
     public void init(HardwareMap ahwMap) {
 
         hwMap = ahwMap;
-        Gageoptic = hwMap.opticalDistanceSensor.get("Gageoptic");
+        Gageoptic = hwMap.opticalDistanceSensor.get("Optic");
         RightUp  = hwMap.dcMotor.get("RightUp");
         LeftUp = hwMap.dcMotor.get("LeftUp");
-        GageGyro = hwMap.gyroSensor.get("GageGyro");
-        GageColor = hwMap.colorSensor.get("GageColor");
+        GageGyro = hwMap.gyroSensor.get("Gyro");
+        GageColor = hwMap.colorSensor.get("Color");
 
         RightUp.setDirection(DcMotor.Direction.REVERSE);
         LeftUp.setDirection(DcMotor.Direction.FORWARD);
