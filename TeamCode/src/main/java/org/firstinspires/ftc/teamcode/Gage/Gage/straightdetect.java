@@ -2,34 +2,35 @@ package org.firstinspires.ftc.teamcode.Gage.Gage;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.util.Hardware;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Autonomous(name = "EXGYRO", group = "robot")
-public class GageGyro extends LinearOpMode {
+@Autonomous(name = "Straight&Detect", group = "robot")
+public class straightdetect extends LinearOpMode {
     gagestestrobot robot = new gagestestrobot();
 
     @Override
-    public void runOpMode() throws InterruptedException{
+    public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
 
         ModernRoboticsI2cGyro Gyro;
-
+        OpticalDistanceSensor Optic;
 
         Gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("Gyro");
+        Optic = (OpticalDistanceSensor)hardwareMap.opticalDistanceSensor.get("Optic");
 
+        int X, Y , Z = 0;
+        int Current = 0;
+        int angleZ = 0;
 
-        int X, Y, Z = 0;     // beginning Gyro Values
-        int Current = 0;              // Current Gyro heading
-        int angleZ = 0;             //rate of heading , z value
-        // Calibration
         telemetry.addData(">","Gyro Calibrating");
         telemetry.update();
         Gyro.calibrate();
 
-        // idle time to check for errors
         while (!isStopRequested() && Gyro.isCalibrating())  {
             sleep(50);
             idle();
@@ -39,41 +40,40 @@ public class GageGyro extends LinearOpMode {
         telemetry.update();
         /**************** RUNNING PROGRAM AFTER. INITIALIZATION BEFORE. **********/
 
+        /**************** RUNNING PROGRAM AFTER. INITIALIZATION BEFORE. **********/
+
         waitForStart();
 
         while (opModeIsActive())  {
 
-            // x,y,z angles & rate of change
             X = Gyro.rawX();
             Y = Gyro.rawY();
             Z = Gyro.rawZ();
-
             angleZ  = Gyro.getIntegratedZValue();
-            // get the heading info
             Current = Gyro.getHeading();
 
             int StartParameter = 60;
             int EndParameter = 90;
-
+            double Distance = Optic.getLightDetected() * 10;
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
 
 
-              if (Current < StartParameter) {
+            if (Current < StartParameter && Distance < 3) {
                 robot.LeftUp.setPower(-.10);
                 robot.RightUp.setPower(.10);
             }
 
-           else if (Current > EndParameter) {
+            else if (Current > EndParameter && Distance < 3) {
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(-.10);
             }
 
-            else {
-                  robot.LeftUp.setPower(.10);
-                  robot.RightUp.setPower(.10);
-              }
+            else if (Distance < 3){
+                robot.LeftUp.setPower(.10);
+                robot.RightUp.setPower(.10);
+            }
 
 
 
@@ -87,6 +87,7 @@ public class GageGyro extends LinearOpMode {
             telemetry.addData( "Xval =", X);
             telemetry.addData( "Yval =", Y);
             telemetry.addData( "Zval =", Z);
+            telemetry.addData("Distance =", Distance);
             telemetry.update();
 
 
@@ -94,3 +95,8 @@ public class GageGyro extends LinearOpMode {
         }
     }
 }
+
+
+
+
+

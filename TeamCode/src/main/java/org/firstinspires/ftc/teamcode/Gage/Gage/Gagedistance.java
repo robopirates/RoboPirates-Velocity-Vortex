@@ -14,8 +14,8 @@ public class Gagedistance extends LinearOpMode {
     public void runOpMode() throws InterruptedException{
         robot.init(hardwareMap);
 
-        OpticalDistanceSensor Gageoptic;
-        Gageoptic = hardwareMap.opticalDistanceSensor.get("Gageoptic");
+        OpticalDistanceSensor Optic;
+        Optic = hardwareMap.opticalDistanceSensor.get("Optic");
 
         // wait for the start button to be pressed.
         waitForStart();
@@ -23,7 +23,7 @@ public class Gagedistance extends LinearOpMode {
         // Note we use opModeIsActive() as our loop condition because it is an interruptible method.
         while (opModeIsActive()) {
 
-            double  distance = Gageoptic.getLightDetected() * 10;
+            double  distance = Optic.getLightDetected() * 10;
 
             telemetry.addData("Distance =", distance);
             telemetry.update();
@@ -31,7 +31,8 @@ public class Gagedistance extends LinearOpMode {
 
 
             if (distance > 3) {
-                continue;
+                robot.LeftUp.setPower(0);
+                robot.RightUp.setPower(0);
             }
             if (distance < 3) {
                 robot.LeftUp.setPower(1);
