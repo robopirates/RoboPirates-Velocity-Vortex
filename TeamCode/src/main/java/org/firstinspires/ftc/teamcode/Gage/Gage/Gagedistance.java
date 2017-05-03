@@ -31,8 +31,8 @@ public class Gagedistance extends LinearOpMode {
 
 
             if (distance > 3) {
-                robot.LeftUp.setPower(0);
-                robot.RightUp.setPower(0);
+                robot.LeftUp.setPower(-distance);
+                robot.RightUp.setPower(-distance);
             }
             if (distance < 3) {
                 robot.LeftUp.setPower(1);

@@ -5,6 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.util.Hardware;
+import com.qualcomm.robotcore.util.Range;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class straightdetect extends LinearOpMode {
         OpticalDistanceSensor Optic;
 
         Gyro = (ModernRoboticsI2cGyro)hardwareMap.gyroSensor.get("Gyro");
-        Optic = (OpticalDistanceSensor)hardwareMap.opticalDistanceSensor.get("Optic");
+        Optic = hardwareMap.opticalDistanceSensor.get("Optic");
 
         int X, Y , Z = 0;
         int Current = 0;
@@ -38,7 +39,6 @@ public class straightdetect extends LinearOpMode {
 
         telemetry.addData(">","Gyro Calibrated");
         telemetry.update();
-        /**************** RUNNING PROGRAM AFTER. INITIALIZATION BEFORE. **********/
 
         /**************** RUNNING PROGRAM AFTER. INITIALIZATION BEFORE. **********/
 
@@ -54,7 +54,7 @@ public class straightdetect extends LinearOpMode {
 
             int StartParameter = 60;
             int EndParameter = 90;
-            double Distance = Optic.getLightDetected() * 10;
+            double Distance = Range.clip(Optic.getLightDetected() , 0, 100) * 10;
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 

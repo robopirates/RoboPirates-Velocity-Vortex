@@ -17,8 +17,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
     //null tells hardware to not cache data
     DcMotor  RightUp  = null;
      DcMotor  LeftUp   = null;
-     //DcMotor  ConstantLeft = null;
-    // DcMotor  ConstantRight = null
      DcMotor LSlide =null;
 
      Servo Armleft = null;
@@ -42,8 +40,6 @@ import com.qualcomm.robotcore.util.ElapsedTime;
         // Define and Initialize Motors
         RightUp  = hwMap.dcMotor.get("RightUp");
         LeftUp = hwMap.dcMotor.get("LeftUp");
-       // ConstantLeft = hwMap.dcMotor.get("ConstantLeft");
-        //ConstantRight= hwMap.dcMotor.get("ConstantRight");
         LSlide  = hwMap.dcMotor.get("LSlide");
         Armright = hwMap.servo.get("Armright");
         Armleft = hwMap.servo.get("Armleft");

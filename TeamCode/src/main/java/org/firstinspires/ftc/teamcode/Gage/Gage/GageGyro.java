@@ -76,11 +76,6 @@ public class GageGyro extends LinearOpMode {
               }
 
 
-
-
-
-
-
             /********************** FEEDBACK TO DRIVER STATION AFTER. PROGRAM BEFORE. **************/
             telemetry.addData( " Current Heading =", Current);
             telemetry.addData( "Int. Ang. =", angleZ);
