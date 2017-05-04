@@ -58,19 +58,17 @@ public class straightdetect extends LinearOpMode {
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
-
-
-            if (Current < StartParameter && Distance < 3) {
+            if (Current < StartParameter && Distance <= 3) {
                 robot.LeftUp.setPower(-.10);
                 robot.RightUp.setPower(.10);
             }
 
-            else if (Current > EndParameter && Distance < 3) {
+             if (Current > EndParameter && Distance <= 3) {
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(-.10);
             }
 
-            else if (Distance < 3){
+            else if (Distance <= 3){
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(.10);
             }
@@ -95,8 +93,3 @@ public class straightdetect extends LinearOpMode {
         }
     }
 }
-
-
-
-
-
