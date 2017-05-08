@@ -3,12 +3,7 @@ import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
-import com.qualcomm.robotcore.hardware.HardwareMap;
-import com.qualcomm.robotcore.util.Hardware;
 import com.qualcomm.robotcore.util.Range;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Autonomous(name = "Straight&Detect", group = "robot")
 public class straightdetect extends LinearOpMode {
@@ -51,10 +46,9 @@ public class straightdetect extends LinearOpMode {
             Z = Gyro.rawZ();
             angleZ  = Gyro.getIntegratedZValue();
             Current = Gyro.getHeading();
-
             int StartParameter = 60;
             int EndParameter = 90;
-            double Distance = Range.clip(Optic.getLightDetected() , 0, 100) * 10;
+            double Distance = Range.clip(Optic.getLightDetected() * 10 , 0, 100);
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
@@ -73,12 +67,6 @@ public class straightdetect extends LinearOpMode {
                 robot.RightUp.setPower(.10);
             }
 
-
-
-
-
-
-
             /********************** FEEDBACK TO DRIVER STATION AFTER. PROGRAM BEFORE. **************/
             telemetry.addData( " Current Heading =", Current);
             telemetry.addData( "Int. Ang. =", angleZ);
@@ -86,6 +74,7 @@ public class straightdetect extends LinearOpMode {
             telemetry.addData( "Yval =", Y);
             telemetry.addData( "Zval =", Z);
             telemetry.addData("Distance =", Distance);
+            telemetry.addData("HeadingMode =" , Gyro.getHeadingMode());
             telemetry.update();
 
 
