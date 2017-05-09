@@ -4,6 +4,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.OpticalDistanceSensor;
 import com.qualcomm.robotcore.util.Range;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 
 /*** Created by robot on 1/22/2017.*/
 
@@ -25,10 +28,10 @@ public class Gagedistance extends LinearOpMode {
         while (opModeIsActive()) {
 
             double  distance = Range.clip(Optic.getLightDetected() * 10 , 0 , 100);
-
             telemetry.addData("Distance =", distance);
             telemetry.update();
 
+            Math.round(distance * 1000)/1000;
 
 
             if (distance > 3) {
