@@ -48,21 +48,23 @@ public class straightdetect extends LinearOpMode {
             Current = Gyro.getHeading();
             int StartParameter = 60;
             int EndParameter = 90;
-            double Distance = Range.clip(Optic.getLightDetected() * 10 , 0, 100);
+            double  Distance = Range.clip(Optic.getLightDetected() , 0 , 100);
+            Math.round(Distance * 100)  ;
+            double distance = Distance / 100;
 
             /*********************  INIT BEFORE THIS. PROGRAM AFTER   ****************/
 
-            if (Current < StartParameter && Distance <= 3) {
+            if (Current < StartParameter && distance <= 3) {
                 robot.LeftUp.setPower(-.10);
                 robot.RightUp.setPower(.10);
             }
 
-             if (Current > EndParameter && Distance <= 3) {
+             if (Current > EndParameter && distance <= 3) {
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(-.10);
             }
 
-            else if (Distance <= 3){
+            else if (distance <= 3){
                 robot.LeftUp.setPower(.10);
                 robot.RightUp.setPower(.10);
             }
@@ -73,7 +75,7 @@ public class straightdetect extends LinearOpMode {
             telemetry.addData( "Xval =", X);
             telemetry.addData( "Yval =", Y);
             telemetry.addData( "Zval =", Z);
-            telemetry.addData("Distance =", Distance);
+            telemetry.addData("Distance =", distance);
             telemetry.addData("HeadingMode =" , Gyro.getHeadingMode());
             telemetry.update();
 

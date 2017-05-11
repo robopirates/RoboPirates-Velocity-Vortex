@@ -27,12 +27,10 @@ public class Gagedistance extends LinearOpMode {
         // Note we use opModeIsActive() as our loop condition because it is an interruptible method.
         while (opModeIsActive()) {
 
-            double  distance = Range.clip(Optic.getLightDetected() * 10 , 0 , 100);
-            telemetry.addData("Distance =", distance);
-            telemetry.update();
+            double  Distance = Range.clip(Optic.getLightDetected() , 0 , 100);
+            Math.round(Distance * 100)  ;
 
-            Math.round(distance * 1000)/1000;
-
+            double distance = Distance / 100;
 
             if (distance > 3) {
                 robot.LeftUp.setPower(0);
@@ -46,6 +44,9 @@ public class Gagedistance extends LinearOpMode {
                 robot.RightUp.setPower(0);
                 robot.LeftUp.setPower(0);
             }
+
+            telemetry.addData("Distance =", distance);
+            telemetry.update();
 
             idle();
         }
